@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResoAV", "ResoAV\ResoAV.csproj", "{6846CC60-5A8D-4C81-886E-3656B4E47733}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMtest", "COMtest\COMtest.csproj", "{122B0D33-034A-408F-95C2-9E476F19FCA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6846CC60-5A8D-4C81-886E-3656B4E47733}.Debug|x86.ActiveCfg = Debug|x86
+		{6846CC60-5A8D-4C81-886E-3656B4E47733}.Debug|x86.Build.0 = Debug|x86
+		{6846CC60-5A8D-4C81-886E-3656B4E47733}.Release|x86.ActiveCfg = Release|x86
+		{6846CC60-5A8D-4C81-886E-3656B4E47733}.Release|x86.Build.0 = Release|x86
+		{122B0D33-034A-408F-95C2-9E476F19FCA4}.Debug|x86.ActiveCfg = Debug|x86
+		{122B0D33-034A-408F-95C2-9E476F19FCA4}.Debug|x86.Build.0 = Debug|x86
+		{122B0D33-034A-408F-95C2-9E476F19FCA4}.Release|x86.ActiveCfg = Release|x86
+		{122B0D33-034A-408F-95C2-9E476F19FCA4}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
