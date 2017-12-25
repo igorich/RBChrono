@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="ResoAV.MegaControl"
+			xmlns:local="clr-namespace:ResoAV"
+			xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			mc:Ignorable="d" d:DesignHeight="40" d:DesignWidth="300"
+			Loaded="UserControl_Loaded">
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<local:AttemptListConverter x:Key="AttemptListConverter"/>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<Grid Name="grMain">
+		<Grid.ColumnDefinitions>
+		</Grid.ColumnDefinitions>
+
+	</Grid>
+</UserControl>

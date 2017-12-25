@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ResoAV.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PenalityShod" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
+    <Setting Name="Penality" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="Attempts" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="SavingPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Top" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="Left" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="RaceHeader" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RB-Club Ралли-спринт АВТОРЫНОК</Value>
+    </Setting>
+    <Setting Name="RaceStartTime" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">08/29/2013 10:00:00</Value>
+    </Setting>
+    <Setting Name="ResultCalculationType" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CommunicationPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM7</Value>
+    </Setting>
+    <Setting Name="IsHardwareStart" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,8 @@
+﻿<Window x:Class="ResoAV.XLS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ResoAV - информация для участников" Height="500" Width="500" Loaded="Window_Loaded" Icon="/Resoav;component/logo.ico">
+    <Grid Name="qwe">
+        <WebBrowser  Name="view"></WebBrowser >
+    </Grid>
+</Window>

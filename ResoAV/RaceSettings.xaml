@@ -1,0 +1,60 @@
+﻿<Window x:Class="ResoAV.RaceSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="clr-namespace:ResoAV"
+        Title="RaceSettings" Height="349" SizeToContent="Width"
+		Name="main1" Loaded="main1_Loaded" Icon="/Resoav;component/logo.ico">
+    <Grid Margin="0,5" >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="20" />
+			<RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+			<RowDefinition Height="66*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="auto" />
+			<ColumnDefinition Width="200" />
+		</Grid.ColumnDefinitions>
+		<TextBlock Grid.Column="0" Grid.Row="0" Text="Название гонки"/>
+		<TextBlock Grid.Column="0" Grid.Row="1" >
+			<Run Text="Пенализация за сход или "/>
+			<LineBreak/>
+			<Run Text="не выход на старт (секунд)"/>
+		</TextBlock>
+		<TextBlock Grid.Column="0" Grid.Row="2" Text="Пенализация за конус (секунд)"/>
+		<TextBlock Grid.Column="0" Grid.Row="3" Text="Время старта гонки" IsEnabled="False" />
+		<TextBlock Grid.Column="0" Grid.Row="4" Text="Количество попыток" IsEnabled="False"/>
+		<TextBlock Grid.Column="0" Grid.Row="5" Text="Папка сохранения результатов"/>
+		<TextBlock Grid.Column="0" Grid.Row="6" Text="Сохранение результатов"/>
+		<TextBlock Grid.Column="0" Grid.Row="7" Text="Способ подсчёта результатов"/>
+        <TextBlock Grid.Column="0" Grid.Row="8" Text="Аппаратный старт"/>
+        <TextBlock Grid.Column="0" Grid.Row="9" Text="Порт комуникации"/>
+		<TextBox Grid.Column="1" Grid.Row="0" Text="{Binding ElementName=main1, Path=RHeader}"/>
+		<TextBox Grid.Column="1" Grid.Row="1" Text="{Binding ElementName=main1, Path=PenalityShod}"/>
+		<TextBox Grid.Column="1" Grid.Row="2" Text="{Binding ElementName=main1, Path=Penality}"/>
+		<TextBox Grid.Column="1" Grid.Row="3" Text="{Binding ElementName=main1, Path=RaceStartTime}"/>
+		<TextBox Grid.Column="1" Grid.Row="4" Text="{Binding ElementName=main1, Path=Attempts}" />
+		<TextBox Grid.Column="1" Grid.Row="5" Text="{Binding ElementName=main1, Path=SavingPath}" Name="edSavingPath" Margin="0,0,25,0" IsEnabled="False"/>
+		<Button Grid.Column="1" Grid.Row="5" Content="..." Width="25" HorizontalAlignment="Right" Click="SelectPath_Click"/>
+		<ComboBox Name="cbSaveMode" Grid.Column="1" Grid.Row="6" Margin="0,0,0,0" SelectedIndex="1" IsEnabled="False">
+			<ComboBoxItem Content="Обновлять файл" Name="cbiUpdateMode"/>
+			<ComboBoxItem Content="Создавать новый файл" Name="cbiCreateNewMode"/>
+		</ComboBox>
+		<ComboBox Grid.Column="1" Grid.Row="7" Margin="0,0,0,0" SelectedIndex="1" Name="cbCalcType" SelectionChanged="cbCalcType_SelectionChanged">
+			<ComboBoxItem Content="По одной быстрейшей попытке" Name="OneFastest"/>
+			<ComboBoxItem Content="По сумме всех попыток" Name="OverallSum"/>
+			<ComboBoxItem Content="По сумме двух быстрейших попыток" Name="TwoFastest"/>
+		</ComboBox>
+        <CheckBox Grid.Column="1" Grid.Row="8" IsChecked="{Binding ElementName=main1, Path=isHardwareStart}" VerticalAlignment="Center"/>
+        <!--<TextBox Grid.Column="1" Grid.Row="9" Text="{Binding ElementName=main1, Path=CommunicationPort}" IsEnabled="{Binding ElementName=main1, Path=isHardwareStart}"/>-->
+        <ComboBox Name="cbComs" Grid.Column="1" Grid.Row="9" IsEnabled="{Binding ElementName=main1, Path=isHardwareStart}" SelectedItem="{Binding ElementName=main1, Path=CommunicationPort}"/>
+		<Button Grid.Column="1" Grid.Row="10" Content="Применить" Height="40" VerticalAlignment="Bottom" Click="Apply_Click" />
+	</Grid>
+</Window>

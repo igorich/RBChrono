@@ -1,0 +1,116 @@
+﻿<Window x:Class="ResoAV.Table"
+        xmlns:local="clr-namespace:ResoAV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        Title="ResoAV - ход гонки" Height="600" MinWidth="870" mc:Ignorable="d" 
+		d:DesignWidth="880" SizeToContent="Width"
+        Closing="Window_Closing">
+	<Window.Resources>
+		<ResourceDictionary>
+			<local:ColorConverter x:Key="ColorConverter"/>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid Name="grGlobal">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="500"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition MinWidth="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+			<RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+		<Menu IsMainMenu="True" Grid.ColumnSpan="5">
+			<MenuItem Header="_Файл" >
+				<MenuItem Header="_Открыть" Click="MenuItem_Open_Click"/>
+				<MenuItem Header="_Сохранить как..." Click="MenuItem_Save_Click"/>
+				<MenuItem Header="С_бросить список" Click="MenuItem_Reset_Click"/>
+			</MenuItem>
+			<MenuItem Header="_Программа">
+				<MenuItem Header="_Настройки" Click="MenuItem_Options_Click"/>
+				<MenuItem Header="О _Программе" Click="MenuItem_About_Click"/>
+			</MenuItem>
+		</Menu>
+		<Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<TextBlock Name="lbRacingTitle" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="" FontWeight="Bold" />
+			<TextBlock Name="lbRacingSubtitle" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="------"/>
+			<local:Clock Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Right" VerticalAlignment="Center" />
+		</Grid>
+		<GridSplitter Grid.Column="1" Grid.Row="2"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <StackPanel Name="spTimersPanel" Orientation="Vertical" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="5" />
+        <ScrollViewer Grid.Column="0" Grid.Row="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" >
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Name="grUnderMain" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="67" />
+				</Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="№" Background="LightGray" FontWeight="Bold" VerticalAlignment="Stretch" TextAlignment="Center"/>
+                <TextBlock Grid.Column="1" Text="Имя" Background="LightGray" FontWeight="Bold" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Center"/>
+                <TextBlock Grid.Column="2" Text="Модель" Background="LightGray" FontWeight="Bold" VerticalAlignment="Stretch" TextAlignment="Center"/>
+                <TextBlock Grid.Column="3" Text="Класс" Background="LightGray" FontWeight="Bold" VerticalAlignment="Stretch" TextAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="1"  Name="grMain" >
+			    <ItemsControl ItemsSource="{Binding competitor}" Grid.IsSharedSizeScope="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" >
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HorizontalAlignment="Stretch" Name="grTemplateGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition SharedSizeGroup="first" Width="30" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition SharedSizeGroup="third" Width="90" />
+                                        <ColumnDefinition SharedSizeGroup="fouth" Width="67" />
+                                        <ColumnDefinition SharedSizeGroup="fifth" Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                				    <Border Grid.Column="0" BorderThickness="1,1,0,0" BorderBrush="Black" Background="{Binding Class, Converter={StaticResource ColorConverter}}">
+                                        <TextBlock Text="{Binding Number}" Padding="5, 0, 5, 0" Height="30"  VerticalAlignment="Stretch"/>
+                                    </Border>
+				                    <Border Grid.Column="1" BorderThickness="1,1,0,0" BorderBrush="Black" Background="{Binding Class, Converter={StaticResource ColorConverter}}">
+					                    <TextBlock Text="{Binding Name}" Padding="5, 0, 5, 0" VerticalAlignment="Stretch"/>
+                                    </Border>
+                				    <Border Grid.Column="2" BorderThickness="1,1,0,0" BorderBrush="Black" Background="{Binding Class, Converter={StaticResource ColorConverter}}">
+				                	    <TextBlock Text="{Binding Model}" Padding="5, 0, 5, 0" VerticalAlignment="Stretch"/>
+                                    </Border>
+                				    <Border Grid.Column="3" BorderThickness="1,1,0,0" BorderBrush="Black" Background="{Binding Class, Converter={StaticResource ColorConverter}}">
+				                	    <TextBlock Text="{Binding Class}" Padding="5, 0, 5, 0" VerticalAlignment="Stretch"/>
+                                    </Border>
+                					<local:MegaControl Grid.Column="4" Item="{Binding }" ContextMenu="{Binding leftButtonMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+								</Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+		<Button Grid.Row="3" Grid.Column="2" Name="btGoToRegistration" Click="btGoToRegistration_Click">
+			<StackPanel Orientation="Horizontal" >
+				<TextBlock Text="Регистрация участников" Width="250" TextAlignment="Center" VerticalAlignment="Center" Padding="100,0,0,0"/>
+				<Image Source="/Resoav;component/Images/go.png" HorizontalAlignment="Right" Margin="50,0,0,0"/>
+			</StackPanel>
+		</Button>
+        <Button Grid.Row="4" Grid.Column="2" Content="Сгенерировать таблицу результатов" Name="btGenerateResults" Click="btGenerateResults_Click"/>
+    </Grid>
+</Window>
